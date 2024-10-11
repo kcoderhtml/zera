@@ -2,7 +2,7 @@
 +++
 
 <div style="display: flex; justify-content: center;">
-  <img src="/pfp.jpg" alt="an image of kieran holding a white kitten"/>
+  <img src="/pfps/current.jpg" alt="an image of kieran holding a white kitten"/>
 </div>
 
 ## About me
