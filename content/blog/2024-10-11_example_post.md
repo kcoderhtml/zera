@@ -1,0 +1,263 @@
++++
+title = "Test Post"
+date = 2024-10-11
+slug = "test-post"
+description = "Testing out styling and features."
+
+[taxonomies]
+tags = ["meta"]
+
+[extra]
+has_toc = true
++++
+
+This post is for me to just test out all the features and styling of the blog, and to
+make sure that if I change the CSS or anything I don't break any of it! This is also a
+sort of light style guide for blog posts in general.
+
+<!-- more -->
+
+First off, this paragraph is after the `<!-- more -->` cutoff, which means that it *should not*
+appear in thumbnails linking to this post from elsewhere on the site.
+
+## Section Headers
+
+Sections headers (prefixed with `##` in markdown) are the main content separators for posts, and
+can be [linked to](#section-headers) directly. To link to them, the header's text needs to be
+*kebab-cased*, so the above would be `#section-headers`.
+
+### But what about sub-headers?
+
+I usually use `###` sub-headers to ask the question I think the reader is (or should be) asking at
+this point in the article. For example, if I just posted some code with an obvious error, I might
+follow that up with `### Wait, won't that crash?` or something similar. Using this approach lets
+me write posts in a conversational way, and helps me continually frame myself in the mind of the
+reader.
+
+### Table of Contents
+
+Section and sub-headers can be used to generate a table of contents at the start of the page. To
+enable this feature for a post, add the following to the page's frontmatter:
+
+> toml
+```toml
+[extra]
+has_toc = true
+```
+
+I don't like content that is nested more than 2 layers deep, so only `##` and `###` should be used
+to divide things up.
+
+## Embedding Code
+
+This is prominently a coding blog, so code will show up a lot. First off, a monospaced text block is
+denoted by wrapping the text in triple back-tick characters <code>&#x0060;&#x0060;&#x0060;</code>.
+
+```
+┌──────────────────────────┐
+│ This text is monospaced. │
+│ This                     │
+│      text                │
+│           is             │
+│              monospaced. │
+└──────────────────────────┘
+```
+
+### Syntax Highlighting
+
+If you want syntax coloring, you put the name of the programming language immediately after the ticks.
+So writing this:
+
+~~~
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+~~~
+
+Will produce this:
+
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+
+### Code Block Title
+
+Sometimes it can help to give a header to a code block to signal what it represents. To do this, you put
+a single-line block quote immediately before the code block. So by prepending the following code with
+`> src/main.rs`, I can produce this:
+
+> src/main.rs
+```rust
+fn main() {
+    println!("This code is in main.rs!");
+}
+```
+
+This can be useful to explicitly state the programming language or format being used:
+
+> TOML
+```toml
+title = "Test Post"
+slug = "test-post"
+description = "Testing out styling and features."
+
+[taxonomies]
+tags = ["meta"]
+```
+
+### Inline Code
+
+As seen above, sometimes code items are mentioned in regular paragraphs, but you want to
+draw attention to them. To do this, you can wrap it in &#x0060; back-tick quotes. For
+example, if I wanted to mention Rust's `Vec<T>` type.
+
+```md
+`Vec<T>`
+```
+
+You can wrap a link around a code tag if you want to link to the docs, for example I could
+link to the [`Option<T>::take_if`](https://doc.rust-lang.org/std/option/enum.Option.html#method.take_if)
+method directly.
+
+```md
+[`Option<T>::take_if`](https://doc.rust-lang.org/std/option/enum.Option.html#method.take_if)
+```
+
+## Block Quotes
+
+I can display a quote by prepending multiple lines of text with `>` like so, which will
+wrap it in a `blockquote` tag:
+
+> "This text will appear italicized in a quote box!"
+
+### Reader Questions
+
+When displaying reader questions, I start the block quote with a bolded name, like so:
+
+> **SonicFan420x69 asks:**
+>
+> &ldquo;What is your opinion of the inimitable video game character, Sonic the Hedgehog? Please
+> answer soon as it is a matter of life or death.&rdquo;
+
+### Cited Quotations
+
+For when I want to have a citation, I can use the html `<cite>` tag after the quote text and it
+will prepend it with a nice `—` em dash.
+
+> "I don't know half of you half as well as I should like, and I like less than half of you half
+> as well as you deserve."
+>
+> <cite>Bilbo Baggins</cite>
+
+### Callouts
+
+Sometimes I want to draw the user's attention to a useful piece of information. If I start a
+blockquote with an [`<i> icon`](#icons-images), it will style it as a callout. For example,
+I could make a little indented to-do list by starting a quote with this:
+
+```html
+> <i class="ri-checkbox-multiple-fill"></i> **To Do**
+```
+
+Which will produce this:
+
+> <i class="ri-checkbox-multiple-fill"></i> **To Do**
+>
+> - <i class="ri-checkbox-line"></i> Section Headers
+> - <i class="ri-checkbox-line"></i> Syntax Highlighting
+> - <i class="ri-checkbox-line"></i> Block Quotes
+> - <i class="ri-checkbox-blank-line"></i> Images &amp; Icons
+
+### Warnings
+
+If the icon class is `ri-error-warning-line`, the callout will be colored red:
+
+> <i class="ri-error-warning-line"></i> **Warning!**
+> 
+> Here is something you should be warned about! There's even a big red
+> bubble here so you know it's serious. Make sure you don't miss it, or
+> the consequences could be dire...
+
+If the icon class is `ri-lightbulb-line`, then the callout will be colored blue.
+
+> <i class="ri-lightbulb-line"></i> **Did you know?**
+>
+> This isn't a warning, but I wanted to draw your attention to something cool! Did you know
+> I take [reader questions](/ask), and will answer them on this blog? Now you know!
+
+These add more colors&mdash;and therefore noise&mdash;to the page and should be used sparingly.
+The warning callout specifically is to alert readers to something particularly important, such
+as unsafe code or something they shouldn't do.
+
+## Icons &amp; Images
+
+They were shown in the previous section, but icons (provided by [Remix Icon](https://remixicon.com/)),
+can be used anywhere by inserting an `<i>` tag with the icon's class. These are useful for adding
+some detail and decorating to the pages, and is another way to break up text.
+
+### Icon Tags
+
+For example, we could check items off a to-do list as the reader progresses in a tutorial:
+
+- <i class="ri-checkbox-line"></i> Wake up
+- <i class="ri-checkbox-line"></i> Eat breakfast
+- <i class="ri-checkbox-line"></i> Finish this post
+- <i class="ri-checkbox-blank-line"></i> ???
+- <i class="ri-checkbox-blank-line"></i> Profit!
+
+## Embedding Media
+
+Images and videos are a great way to break up content and prevent text fatigue.
+
+### Images
+
+Images can be embedded using the usual markdown syntax:
+
+```md
+![alt text](/path/to/image.png)
+```
+
+![NOISE1 screenshot](https://img.itch.zone/aW1hZ2UvNTU2NDU0LzI5MTYzNzgucG5n/original/6GRlJM.png)
+
+When there are multiple paragraphs of text in a row (usually 3-4), and nothing else to break
+them up, images can be interspersed to help prevent text-wall fatique.
+
+You can also add captions to images:
+
+<figure>
+    <img src="https://img.itch.zone/aW1hZ2UvNTU2NDU0LzI5MTYzNzkucG5n/original/8LIdCb.png" alt="NOISE1 screenshot">
+    <figcaption>
+        NOISE1 is a dark sci-fi hacker-typing stealth game.
+    </figcaption>
+</figure>
+
+But there is no way to do this in markdown so you have to use the `<figure>` tag like so:
+
+```html
+<figure>
+    <img src="/path/to/image.png" alt="Alt text goes here.">
+    <figcaption>Caption text goes here.</figcaption>
+</figure>
+```
+
+### Videos
+
+To embed a video, you use whatever embed tag works. For example, YouTube provides an `<iframe>` tag for
+videos that you can use to embed into the page:
+
+<iframe src="https://www.youtube.com/embed/kiWvNwuBbEE" title="Ikenfell Launch Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Do not use a `width` or `height` when doing this. The video should always be the full width of the page,
+and the height will be auto-calculated based on a 16:9 aspect ratio.
+
+## Miscellaneous
+
+You can also create `<hr>` horizontal rule tags using `---` in markdown, like so:
+
+---
+
+But these should be used sparingly, if at all.
