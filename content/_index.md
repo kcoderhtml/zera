@@ -18,6 +18,8 @@ Browse our posts by tags:
 - [example](./tags/example)
 
 ## Code
+
+> typescript
 ```ts
 const stuff: string = "stuff"
 ```

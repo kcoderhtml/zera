@@ -99,7 +99,30 @@
   float: left
 }
 
-/* shortcodes css */
-.webring {
-  margin: .375rem;
+pre {
+  border-top-left-radius: 0;
+}
+
+blockquote:has(+ pre) {
+  display: inline-block;
+  border: none;
+  font-family: "code" !important;
+  font-size: .8rem;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 0.2rem;
+  margin-block: 0 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  position: relative;
+  background-color: var(--accent);
+}
+
+blockquote:has(+ pre) p {
+  margin: 0;
+  color: var(--accent-text);
 }
