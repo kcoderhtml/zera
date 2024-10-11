@@ -40,9 +40,9 @@ list_pages = false
 twitter_card = true
 
 header_nav = [
-  { url = "/", name_en = "/home/" },
-  { url = "/about", name_en = "/about/" },
-  { url = "/blog", name_en = "/blog/" }
+  { url = "/", name = "/home/" },
+  { url = "/about", name = "/about/" },
+  { url = "/blog", name = "/blog/" }
 ]
 
 # Optional footer license text. It will only show, when using footer_content_license.
