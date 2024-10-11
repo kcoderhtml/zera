@@ -7,7 +7,7 @@
 
 ## About me
 
-I'm a homeschooled coder who is {{ age(length=0) }} years old and loves film making, fpv, and typescript :)
+Erlo! My name is Kieran Klukas and i'm a homeschooled coder who is {{ age(length=0) }} years old and loves film making, fpv, and typescript :)
 
 > init.ts
 ```ts
