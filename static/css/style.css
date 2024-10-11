@@ -103,6 +103,11 @@ pre {
   border-top-left-radius: 0;
 }
 
+blockquote {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
 blockquote:has(+ pre) {
   display: inline-block;
   border: none;
