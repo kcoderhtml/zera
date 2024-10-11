@@ -3,7 +3,7 @@ base_url = "https://dunkirk.sh"
 
 title = "Zera"
 description = "The home site of Kieran Klukas"
-compile_sass = false
+compile_sass = true
 minify_html = true
 generate_feeds = true
 default_language = "en"
@@ -19,8 +19,6 @@ smart_punctuation = true
 
 highlight_code = true
 highlight_theme = "css"
-
-extra_syntaxes_and_themes = ["highlighting", "highlighting/catppuccin"]
 
 [slugify]
 paths = "on"

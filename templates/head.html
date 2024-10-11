@@ -65,22 +65,7 @@ get_url(path="atom.xml", trailing_slash=false) }}"> {% endblock feed %} {% endif
 <link
   rel="stylesheet"
   type="text/css"
-  href="https://speyll.github.io/suCSS/reset-min.css"
-/>
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://speyll.github.io/suCSS/suCSS-min.css"
-/>
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{{ get_url(path='css/style.css', trailing_slash=false) | safe }}"
-/>
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{{ get_url(path='css/syntax-theme.css', trailing_slash=false) | safe }}"
+  href="{{ get_url(path='css/main.css', trailing_slash=false) | safe }}"
 />
 {% endblock css %}
 <script
