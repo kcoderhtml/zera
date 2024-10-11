@@ -77,6 +77,11 @@ get_url(path="atom.xml", trailing_slash=false) }}"> {% endblock feed %} {% endif
   type="text/css"
   href="{{ get_url(path='css/style.css', trailing_slash=false) | safe }}"
 />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ get_url(path='css/syntax-theme.css', trailing_slash=false) | safe }}"
+/>
 {% endblock css %}
 <script
   src="{{ get_url(path='js/script.js', trailing_slash=false) | safe }}"
