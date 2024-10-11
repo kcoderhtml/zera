@@ -1,42 +1,30 @@
 +++
 +++
 
-## Overview
+<div style="display: flex; justify-content: center;">
+  <img src="/pfp.jpg" alt="an image of kieran holding a white kitten"/>
+</div>
 
-anemone theme is designed to provide a nearly no-JavaScript, efficient, and minimalist experience for your website. Embracing simplicity, the theme focuses on content and readability, ensuring a seamless user experience without unnecessary distractions.
+## About me
 
-> *"Useless blockquote"*
+I'm a homeschooled coder who is {{ age(length=0) }} years old and loves film making, fpv, and typescript :)
 
-## Blog Posts
-
-To be created
-
-## Tags
-
-Browse our posts by tags:
-
-- [example](./tags/example)
-
-## Code
-
-> typescript
+> init.ts
 ```ts
-const stuff: string = "stuff"
+const kieran = {
+  name: "kieran klukas"
+  age: {{ age(length=2) }}
+  education: ["Homeschooled", "Dual Enrollment"]
+  favFoods: ["lo mein", "bacon fried rice", "pretty much any meat"]
+}
 ```
 
-## Another List
+## Want to talk to me?
 
-Discover additional content:
-
-- With Subitems
-  - With Subsubitems
-  - [Example Page](./about)
-- this list is just the content of `content/_index.md`, the tests are shamelessly stolen from [no style, please!](https://www.getzola.org/themes/no-style-please/)
-
-## Online Presence
-
-Stay connected with us:
+Do you want to hire me? (I will answer immediately :) If you just have a question or want to talk I'll still answer (admittedly more sadly).
 
 - Email: [me@dunkirk.sh](mailto:me@dunkirk.sh)
-- Code Repositories: [kcoderhtml@github](https://github.com/kcoderhtml)
-- @{{insert random usrname}} anywhere else.
+- Matrix: [@kieran:dumpsterfire.icu](https://matrix.to/#/@kieran.matrix.dumpsterfire.icu)
+- Hackclub Slack: [@krn](https://hackclub.slack.com/team/U062UG485EE) (only if you are a highschooler or younger; [join here](https://hackclub.com/slack/))
+
+_I wouldn't count on reaching me via Matrix. I tend to check it once in a blue moon; email is probably your best bet._
