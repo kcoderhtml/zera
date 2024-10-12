@@ -153,61 +153,11 @@ will prepend it with a nice `—` em dash.
 >
 > <cite>Bilbo Baggins</cite>
 
-### Callouts
-
-Sometimes I want to draw the user's attention to a useful piece of information. If I start a
-blockquote with an [`<i> icon`](#icons-images), it will style it as a callout. For example,
-I could make a little indented to-do list by starting a quote with this:
-
-```html
-> <i class="ri-checkbox-multiple-fill"></i> **To Do**
-```
-
-Which will produce this:
-
-> <i class="ri-checkbox-multiple-fill"></i> **To Do**
->
-> - <i class="ri-checkbox-line"></i> Section Headers
-> - <i class="ri-checkbox-line"></i> Syntax Highlighting
-> - <i class="ri-checkbox-line"></i> Block Quotes
-> - <i class="ri-checkbox-blank-line"></i> Images &amp; Icons
-
-### Warnings
-
-If the icon class is `ri-error-warning-line`, the callout will be colored red:
-
-> <i class="ri-error-warning-line"></i> **Warning!**
-> 
-> Here is something you should be warned about! There's even a big red
-> bubble here so you know it's serious. Make sure you don't miss it, or
-> the consequences could be dire...
-
-If the icon class is `ri-lightbulb-line`, then the callout will be colored blue.
-
-> <i class="ri-lightbulb-line"></i> **Did you know?**
->
-> This isn't a warning, but I wanted to draw your attention to something cool! Did you know
-> I take [reader questions](/ask), and will answer them on this blog? Now you know!
-
-These add more colors&mdash;and therefore noise&mdash;to the page and should be used sparingly.
-The warning callout specifically is to alert readers to something particularly important, such
-as unsafe code or something they shouldn't do.
-
 ## Icons &amp; Images
 
 They were shown in the previous section, but icons (provided by [Remix Icon](https://remixicon.com/)),
 can be used anywhere by inserting an `<i>` tag with the icon's class. These are useful for adding
 some detail and decorating to the pages, and is another way to break up text.
-
-### Icon Tags
-
-For example, we could check items off a to-do list as the reader progresses in a tutorial:
-
-- <i class="ri-checkbox-line"></i> Wake up
-- <i class="ri-checkbox-line"></i> Eat breakfast
-- <i class="ri-checkbox-line"></i> Finish this post
-- <i class="ri-checkbox-blank-line"></i> ???
-- <i class="ri-checkbox-blank-line"></i> Profit!
 
 ## Embedding Media
 
@@ -246,13 +196,23 @@ But there is no way to do this in markdown so you have to use the `<figure>` tag
 
 ### Videos
 
-To embed a video, you use whatever embed tag works. For example, YouTube provides an `<iframe>` tag for
-videos that you can use to embed into the page:
+To embed a video, you use the `youtube` shortcode e.g.
+
+> post.md
+```md
+{{/* youtube(id="kiWvNwuBbEE") */}}
+```
+
+You can also add the `autoplay=true` flag to make the video autoplay.
 
 {{ youtube(id="kiWvNwuBbEE") }}
 
-Do not use a `width` or `height` when doing this. The video should always be the full width of the page,
-and the height will be auto-calculated based on a 16:9 aspect ratio.
+The shortcode is processed into an iframe which looks like this:
+
+> post.html
+```html
+{{ youtube(id="kiWvNwuBbEE") }}
+```
 
 ## Miscellaneous
 
