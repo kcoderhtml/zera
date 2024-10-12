@@ -567,10 +567,15 @@ blockquote {
   font-style: italic;
 }
 
-cite {
+p:has(cite) {
+  text-align: right;
   font-size: 0.875rem;
   color: var(--text-light);
-  font-style: normal;
+  font-weight: 600;
+}
+
+cite::before {
+  content: "— ";
 }
 
 dt {
