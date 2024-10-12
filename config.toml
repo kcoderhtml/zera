@@ -41,7 +41,7 @@ twitter_card = true
 
 header_nav = [
   { url = "/", name = "/home/" },
-  { url = "/about", name = "/about/" },
+  { url = "/pfp", name = "/pfp/" },
   { url = "/blog", name = "/blog/" }
 ]
 
