@@ -67,7 +67,7 @@
   --accent-light: #e08f67;
   --accent-text: var(--bg);
   --border: #646868;
-  --link: #5690af;
+  --link: #006ca7;
 }
 
 [data-theme="dark"] {
@@ -210,6 +210,8 @@ p {
 a,
 a:visited {
   text-decoration: none;
+  font-weight: bold;
+  font-style: italic;
   border-radius: 0.125rem;
   color: var(--link);
 }
