@@ -249,7 +249,7 @@ But there is no way to do this in markdown so you have to use the `<figure>` tag
 To embed a video, you use whatever embed tag works. For example, YouTube provides an `<iframe>` tag for
 videos that you can use to embed into the page:
 
-<iframe src="https://www.youtube.com/embed/kiWvNwuBbEE" title="Ikenfell Launch Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{{ youtube(id="kiWvNwuBbEE") }}
 
 Do not use a `width` or `height` when doing this. The video should always be the full width of the page,
 and the height will be auto-calculated based on a 16:9 aspect ratio.

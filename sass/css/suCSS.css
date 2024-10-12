@@ -535,7 +535,10 @@ mark a {
 }
 
 img,
-video {
+video,
+iframe[src^="https://www.youtube-nocookie.com"],
+iframe[src^="https://www.youtube.com"]
+{
   max-width: 90%;
   height: auto;
   padding: 0.125rem;

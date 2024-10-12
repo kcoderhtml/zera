@@ -140,3 +140,14 @@ blockquote:has(+ pre) p {
   margin: 0;
   color: var(--accent-text);
 }
+
+.yt-embed {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.yt-embed iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
