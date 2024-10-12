@@ -63,11 +63,11 @@
   --bg-light: #cbcdcd;
   --text: #41474e;
   --text-light: #646868;
-  --accent: #d26878;
+  --accent: #58310ac5;
   --accent-light: #e08f67;
   --accent-text: var(--bg);
   --border: #646868;
-  --link: #006ca7;
+  --link: #b74900;
 }
 
 [data-theme="dark"] {
@@ -80,7 +80,7 @@
   --accent-light: #87c9e5;
   --accent-text: var(--bg);
   --border: #dbd5bc;
-  --link: #e2aea2;
+  --link: #e2c8a2;
 }
 
 ::selection,
