@@ -281,7 +281,6 @@ header > nav ol li {
 /* Consolidate box styling */
 aside,
 details,
-pre,
 progress {
   background-color: var(--bg-light);
   border-radius: var(--standard-border-radius);
