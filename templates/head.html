@@ -66,11 +66,11 @@ base64=true) %}
 <link
   rel="stylesheet"
   type="text/css"
-  href="{{ get_url(path='css/main.css?hash=' ~ cssHash, trailing_slash=false) | safe }}"
+  href="{{ get_url(path='css/main.css?' ~ cssHash, trailing_slash=false) | safe }}"
 />
 {% endblock css %} {% set jsHash = get_hash(path="js/script.js", sha_type=256,
 base64=true) %}
 <script
-  src="{{ get_url(path='js/script.js' ~ jsHash, trailing_slash=false) | safe }}"
+  src="{{ get_url(path='js/script.js?' ~ jsHash, trailing_slash=false) | safe }}"
   defer
 ></script>
