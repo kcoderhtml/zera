@@ -19,7 +19,7 @@
 }
 
 .accent-data {
-  color: var(--accent);
+  color: var(--accent-light);
 }
 
 .theme-transition {

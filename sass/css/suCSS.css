@@ -64,7 +64,7 @@
   --text: #41474e;
   --text-light: #686764;
   --accent: #58310ac5;
-  --accent-light: #e08f67;
+  --accent-light: #56412bc5;
   --accent-text: var(--bg);
   --border: #646868;
   --link: #573819c5;
@@ -76,8 +76,8 @@
   --bg-light: #464949;
   --text: #d6d6d6;
   --text-light: #c5c0b7;
-  --accent: #78b6ad;
-  --accent-light: #87c9e5;
+  --accent: #78b4b6e3;
+  --accent-light: #c5edefe6;
   --accent-text: var(--bg);
   --border: #dbd5bc;
   --link: #e2c8a2;
