@@ -45,13 +45,13 @@ html[data-theme="light"] .z-keyword {
   font-style: italic;
 }
 html[data-theme="light"] .z-keyword.z-control.z-loop,
-.z-keyword.z-control.z-conditional,
-.z-keyword.z-control.z-c\+\+ {
+html[data-theme="light"] .z-keyword.z-control.z-conditional,
+html[data-theme="light"] .z-keyword.z-control.z-c\+\+ {
   color: #8839ef;
   font-weight: bold;
 }
 html[data-theme="light"] .z-keyword.z-control.z-return,
-.z-keyword.z-control.z-flow.z-return {
+html[data-theme="light"] .z-keyword.z-control.z-flow.z-return {
   color: #ea76cb;
   font-weight: bold;
 }
@@ -60,7 +60,7 @@ html[data-theme="light"] .z-support.z-type.z-exception {
   font-style: italic;
 }
 html[data-theme="light"] .z-keyword.z-operator,
-.z-punctuation.z-accessor {
+html[data-theme="light"] .z-punctuation.z-accessor {
   color: #04a5e5;
   font-weight: bold;
 }
@@ -88,7 +88,7 @@ html[data-theme="light"] .z-storage.z-modifier {
   color: #d20f39;
 }
 html[data-theme="light"] .z-entity.z-name.z-namespace,
-.z-meta.z-path {
+html[data-theme="light"] .z-meta.z-path {
   color: #dc8a78;
   font-style: italic;
 }
@@ -104,7 +104,7 @@ html[data-theme="light"] .z-keyword.z-declaration.z-class {
   font-style: italic;
 }
 html[data-theme="light"] .z-entity.z-name.z-class,
-.z-meta.z-toc-list.z-full-identifier {
+html[data-theme="light"] .z-meta.z-toc-list.z-full-identifier {
   color: #04a5e5;
 }
 html[data-theme="light"] .z-entity.z-other.z-inherited-class {
@@ -112,7 +112,7 @@ html[data-theme="light"] .z-entity.z-other.z-inherited-class {
   font-style: italic;
 }
 html[data-theme="light"] .z-entity.z-name.z-function,
-.z-variable.z-function {
+html[data-theme="light"] .z-variable.z-function {
   color: #1e66f5;
   font-style: italic;
 }
@@ -123,7 +123,7 @@ html[data-theme="light"] .z-keyword.z-control.z-import {
   color: #d20f39;
 }
 html[data-theme="light"] .z-entity.z-name.z-function.z-constructor,
-.z-entity.z-name.z-function.z-destructor {
+html[data-theme="light"] .z-entity.z-name.z-function.z-destructor {
   color: #7287fd;
 }
 html[data-theme="light"] .z-variable.z-parameter.z-function {
@@ -141,7 +141,7 @@ html[data-theme="light"] .z-support.z-constant {
   color: #1e66f5;
 }
 html[data-theme="light"] .z-support.z-type,
-.z-support.z-class {
+html[data-theme="light"] .z-support.z-class {
   color: #1e66f5;
   font-style: italic;
 }
@@ -183,14 +183,14 @@ html[data-theme="light"] .z-meta.z-link.z-inline.z-description {
   font-weight: bold;
 }
 html[data-theme="light"] .z-comment.z-block.z-markdown,
-.z-meta.z-code-fence,
-.z-markup.z-raw.z-code-fence,
-.z-markup.z-raw.z-inline {
+html[data-theme="light"] .z-meta.z-code-fence,
+html[data-theme="light"] .z-markup.z-raw.z-code-fence,
+html[data-theme="light"] .z-markup.z-raw.z-inline {
   color: #179299;
   font-style: italic;
 }
 html[data-theme="light"] .z-punctuation.z-definition.z-heading,
-.z-entity.z-name.z-section {
+html[data-theme="light"] .z-entity.z-name.z-section {
   color: #1e66f5;
   font-weight: bold;
 }
@@ -245,13 +245,13 @@ html[data-theme="light"] .z-support.z-constant.z-property-value.z-css {
   color: #4c4f69;
 }
 html[data-theme="light"] .z-constant.z-numeric.z-suffix.z-css,
-.z-keyword.z-other.z-unit.z-css {
+html[data-theme="light"] .z-keyword.z-other.z-unit.z-css {
   color: #179299;
   font-style: italic;
 }
 html[data-theme="light"] .z-variable.z-other.z-custom-property.z-name.z-css,
-.z-support.z-type.z-custom-property.z-name.z-css,
-.z-punctuation.z-definition.z-custom-property.z-css {
+html[data-theme="light"] .z-support.z-type.z-custom-property.z-name.z-css,
+html[data-theme="light"] .z-punctuation.z-definition.z-custom-property.z-css {
   color: #179299;
 }
 html[data-theme="light"] .z-entity.z-name.z-tag.z-css {
@@ -269,7 +269,7 @@ html[data-theme="light"] .z-invalid.z-deprecated {
   background-color: #8839ef;
 }
 html[data-theme="light"] .z-meta.z-diff,
-.z-meta.z-diff.z-header {
+html[data-theme="light"] .z-meta.z-diff.z-header {
   color: #9ca0b0;
 }
 html[data-theme="light"] .z-markup.z-deleted {
@@ -326,13 +326,13 @@ html[data-theme="dark"] .z-keyword {
   font-style: italic;
 }
 html[data-theme="dark"] .z-keyword.z-control.z-loop,
-.z-keyword.z-control.z-conditional,
-.z-keyword.z-control.z-c\+\+ {
+html[data-theme="dark"] .z-keyword.z-control.z-conditional,
+html[data-theme="dark"] .z-keyword.z-control.z-c\+\+ {
   color: #c6a0f6;
   font-weight: bold;
 }
 html[data-theme="dark"] .z-keyword.z-control.z-return,
-.z-keyword.z-control.z-flow.z-return {
+html[data-theme="dark"] .z-keyword.z-control.z-flow.z-return {
   color: #f5bde6;
   font-weight: bold;
 }
@@ -341,7 +341,7 @@ html[data-theme="dark"] .z-support.z-type.z-exception {
   font-style: italic;
 }
 html[data-theme="dark"] .z-keyword.z-operator,
-.z-punctuation.z-accessor {
+html[data-theme="dark"] .z-punctuation.z-accessor {
   color: #91d7e3;
   font-weight: bold;
 }
@@ -369,7 +369,7 @@ html[data-theme="dark"] .z-storage.z-modifier {
   color: #ed8796;
 }
 html[data-theme="dark"] .z-entity.z-name.z-namespace,
-.z-meta.z-path {
+html[data-theme="dark"] .z-meta.z-path {
   color: #f4dbd6;
   font-style: italic;
 }
@@ -385,7 +385,7 @@ html[data-theme="dark"] .z-keyword.z-declaration.z-class {
   font-style: italic;
 }
 html[data-theme="dark"] .z-entity.z-name.z-class,
-.z-meta.z-toc-list.z-full-identifier {
+html[data-theme="dark"] .z-meta.z-toc-list.z-full-identifier {
   color: #91d7e3;
 }
 html[data-theme="dark"] .z-entity.z-other.z-inherited-class {
@@ -393,7 +393,7 @@ html[data-theme="dark"] .z-entity.z-other.z-inherited-class {
   font-style: italic;
 }
 html[data-theme="dark"] .z-entity.z-name.z-function,
-.z-variable.z-function {
+html[data-theme="dark"] .z-variable.z-function {
   color: #8aadf4;
   font-style: italic;
 }
@@ -404,7 +404,7 @@ html[data-theme="dark"] .z-keyword.z-control.z-import {
   color: #ed8796;
 }
 html[data-theme="dark"] .z-entity.z-name.z-function.z-constructor,
-.z-entity.z-name.z-function.z-destructor {
+html[data-theme="dark"] .z-entity.z-name.z-function.z-destructor {
   color: #b7bdf8;
 }
 html[data-theme="dark"] .z-variable.z-parameter.z-function {
@@ -422,7 +422,7 @@ html[data-theme="dark"] .z-support.z-constant {
   color: #8aadf4;
 }
 html[data-theme="dark"] .z-support.z-type,
-.z-support.z-class {
+html[data-theme="dark"] .z-support.z-class {
   color: #8aadf4;
   font-style: italic;
 }
@@ -464,14 +464,14 @@ html[data-theme="dark"] .z-meta.z-link.z-inline.z-description {
   font-weight: bold;
 }
 html[data-theme="dark"] .z-comment.z-block.z-markdown,
-.z-meta.z-code-fence,
-.z-markup.z-raw.z-code-fence,
-.z-markup.z-raw.z-inline {
+html[data-theme="dark"] .z-meta.z-code-fence,
+html[data-theme="dark"] .z-markup.z-raw.z-code-fence,
+html[data-theme="dark"] .z-markup.z-raw.z-inline {
   color: #8bd5ca;
   font-style: italic;
 }
 html[data-theme="dark"] .z-punctuation.z-definition.z-heading,
-.z-entity.z-name.z-section {
+html[data-theme="dark"] .z-entity.z-name.z-section {
   color: #8aadf4;
   font-weight: bold;
 }
@@ -526,13 +526,13 @@ html[data-theme="dark"] .z-support.z-constant.z-property-value.z-css {
   color: #cad3f5;
 }
 html[data-theme="dark"] .z-constant.z-numeric.z-suffix.z-css,
-.z-keyword.z-other.z-unit.z-css {
+html[data-theme="dark"] .z-keyword.z-other.z-unit.z-css {
   color: #8bd5ca;
   font-style: italic;
 }
 html[data-theme="dark"] .z-variable.z-other.z-custom-property.z-name.z-css,
-.z-support.z-type.z-custom-property.z-name.z-css,
-.z-punctuation.z-definition.z-custom-property.z-css {
+html[data-theme="dark"] .z-support.z-type.z-custom-property.z-name.z-css,
+html[data-theme="dark"] .z-punctuation.z-definition.z-custom-property.z-css {
   color: #8bd5ca;
 }
 html[data-theme="dark"] .z-entity.z-name.z-tag.z-css {
@@ -550,7 +550,7 @@ html[data-theme="dark"] .z-invalid.z-deprecated {
   background-color: #c6a0f6;
 }
 html[data-theme="dark"] .z-meta.z-diff,
-.z-meta.z-diff.z-header {
+html[data-theme="dark"] .z-meta.z-diff.z-header {
   color: #6e738d;
 }
 html[data-theme="dark"] .z-markup.z-deleted {
