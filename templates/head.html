@@ -61,14 +61,16 @@ default(value=true) %} {% if twitter_card != false %}
 {% endif %} {% endblock metatags %} {% if config.generate_feeds %} {% block feed
 %} <link rel="alternate" type="application/atom+xml" title="RSS" href="{{
 get_url(path="atom.xml", trailing_slash=false) }}"> {% endblock feed %} {% endif
-%} {% block css %}
+%} {% block css %} {% set cssHash = get_hash(path="css/main.css", sha_type=256,
+base64=true) %}
 <link
   rel="stylesheet"
   type="text/css"
-  href="{{ get_url(path='css/main.css', trailing_slash=false) | safe }}"
+  href="{{ get_url(path='css/main.css?hash=' ~ cssHash, trailing_slash=false) | safe }}"
 />
-{% endblock css %}
+{% endblock css %} {% set jsHash = get_hash(path="js/script.js", sha_type=256,
+base64=true) %}
 <script
-  src="{{ get_url(path='js/script.js', trailing_slash=false) | safe }}"
+  src="{{ get_url(path='js/script.js' ~ jsHash, trailing_slash=false) | safe }}"
   defer
 ></script>
