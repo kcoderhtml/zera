@@ -1,8 +1,8 @@
 # The URL the site will be built for
 base_url = "https://dunkirk.sh"
 
-title = "Zera"
-description = "The home site of Kieran Klukas"
+title = "site@zera"
+description = "The home site of kieran klukas"
 compile_sass = true
 minify_html = true
 generate_feeds = true
@@ -44,8 +44,3 @@ header_nav = [
   { url = "/pfp", name = "/pfp/" },
   { url = "/blog", name = "/blog/" }
 ]
-
-# Optional footer license text. It will only show, when using footer_content_license.
-footer_content_license = "Creative Commons Attribution 4.0 International"
-footer_content_license_link = "https://creativecommons.org/licenses/by/4.0/"
-
