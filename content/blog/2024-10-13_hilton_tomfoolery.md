@@ -2,7 +2,7 @@
 title = "Hilton Tomfoolery"
 date = 2024-10-13
 slug = "hilton-tomfoolery"
-description = "Playing around with mitmproxy and the hilton app as well as a flipper zero"
+description = "Playing around with mitmproxy and the Hilton Honors app as well as a flipper zero"
 
 [taxonomies]
 tags = ["meta"]
@@ -11,17 +11,17 @@ tags = ["meta"]
 has_toc = true
 +++
 
-I'm at a Hilton at the time of writing this and I'm decently bored. Currently I'm downloading the latest version of RogueMaster (0.420.0) to my flipper as its currently crashing every time I open the NFC app. My dad tried out the app unlock feature for the first time today and based on playing with it it seems to take a proximity reading to detect if you are by your door but for a period of time (~20 sec) after getting that signal it allows you to unlock the door from across the room which I'm guessing means that its via a central server. The current plan is to install the root cert on my iphone and then try and intercept those api calls and see if we can manipulate them in any interesting ways. I'm also planning on liveblogging this which i've never tried before.
+I'm at a Hilton at the time of writing this, and I'm decently bored. Currently, I'm downloading the latest version of RogueMaster (0.420.0) to my flipper, as it is currently crashing every time I open the NFC app. My dad tried out the app unlock feature in the Hilton app for the first time today, which, as most new tech things, made me quite curious how it worked and whether I could break it. Based on playing with it, there seems to be a proximity reading (over Bluetooth? Perhaps a BLE beacon?) to detect if you are by your door but for a period of time (~20 sec) after getting that signal it allows you to unlock the door from across the room which I'm guessing means that it controls the locks via a central server. The current plan is to install the root cert (of mitmproxy) on my iPhone and then try and intercept those API calls and see if we can manipulate them in any interesting ways. I'm also planning on live blogging this, which I've never tried before. (I also wrote this whole article in vim ^_^)
 
 ## Connecting to Mitmproxy
 
-I'm connecting over wireguard so i'm firing up mitmproxy with `mitmweb --mode wireguard` on my laptop. Connecting via wireguard theoreticaly is pretty simple; all i need to do is to scan a qr code and connect. Unfortunetaly the hotel wifi seems to be oddly segemented and i can't access the wireguard server or ping my laptop from my phone. I'm going to try firing up a hot spot on my dad's phone and see if that allows me to talk to my phone.
+I'm connecting over WireGuard, so I fired up mitmproxy with `mitmweb --mode wireguard` on my laptop. Connecting via WireGuard theoretically is pretty simple; all I need to do is to scan a qr code and connect. Unfortunately, the hotel Wi-Fi seems to be oddly segmented, and I can't access the WireGuard server or ping my laptop from my phone. I'm going to try firing up a hot spot on my dad's phone and see if that allows me to talk to my phone.
 
-I messed with getting my laptop to connect to my dad's phone but it kept refusing for some reason. My next idea is to ngrok the wireguard tunnel which ended up failing because ngrok dosn't support udp. Finally after an embaressingly long time i realized that I could simply use ngrok tcp and the http proxy server instead. After installing the root certificate and trusting it in the iphone settings we were good to go!
+I messed with getting my laptop to connect to my dad's phone, but it kept refusing for some reason. My next idea is to ngrok the WireGuard tunnel, which ended up failing because ngrok doesn't support UDP. Finally, after an embarrassingly long time, I realized that I could simply use `ngrok tcp 8080` and the HTTP proxy server built into mitmproxy instead. After installing the root certificate and trusting it in the iPhone settings, we were good to go!
 
 ## Digging around in the Hilton Honors app
 
-First I had to download the app which required disabling the proxy as iOS seems to ignore certificate trust settings for the app store. Enrollment happened via the `https://m.hilton.io/graphql/customer?operationName=createGuest&type=enroll` endpoint and was as follows:
+First I had to download the app, which required disabling the proxy as iOS seems to ignore certificate trust settings for the app store. Enrollment happened via the `https://m.hilton.io/graphql/customer?operationName=createGuest&type=enroll` endpoint and was as follows:
 
 ```json
 {
@@ -117,11 +117,11 @@ with the headers:
 }
 ```
 
-At this point I went to bed as it was about 23:30 but I set my alarm for 5:30 (if you know me I never get up before 8:00 so this is rare) and actualy managed to wakeup on time. It's always quite curious how excitement and a new place can cause you to wake-up earlier. Unfortunetaly while I was sleeping my laptop died which caused me to loose the rest of the signup data. I'm going to invite myself to get the room key and see what api requests that triggers and then try actualy unlocking the door.
+At this point I went to bed as it was about 23:30, but I set my alarm for 5:30 (if you know me I never get up before 8:00, so this is rare) and actually managed to wake-up on time. It's always quite curious how excitement and a new place can cause you to wake-up earlier. Unfortunately, while I was sleeping my laptop died which caused me to lose the rest of the signup data. I'm going to invite myself to get the room key and see what API requests that triggers, and then try actually unlocking the door.
 
 # Invitation
 
-I shared the key which asked for a name and then opened the iOS share sheet and I choose to send by text. I went back to my phone clicked the link and low and behold we got a hit! `https://hms.hiltonapi.com/hms/v1/digitalkey/invitation/accept`
+I shared the key which asked for a name and then opened the iOS share sheet and I choose to send by text. I went back to my phone, clicked the link and low and behold we got a hit! `https://hms.hiltonapi.com/hms/v1/digitalkey/invitation/accept`:
 
 ```json
 {
@@ -735,11 +735,11 @@ with a response of:
 }
 ```
 
-It appears that hilton relies very heavily on graphql which is interesting. I would be interested in playing with those apis more. For now though, onto unlocking stuff!
+It appears that Hilton relies very heavily on GraphQL, which is interesting. I would be interested in playing with those APIs more. For now, though, onto unlocking stuff!
 
 ## Locks
 
-When using the unlock button it made a request to this url: `https://smetric.hilton.com/b/ss/hiltonglobalprod/10/IOSN030200030900/s65425920` with a payload of a url encoded form.
+When using the unlock button, it made a request to this URL: `https://smetric.hilton.com/b/ss/hiltonglobalprod/10/IOSN030200030900/s65425920` with a payload of a URL encoded form.
 
 ```text
 ndh:              1
@@ -857,7 +857,7 @@ ts:               1728899984
 }
 ```
 
-About a second afterward I get a second request to `https://smetric.hilton.com/b/ss/hiltonglobalprod/10/IOSN030200030900/s88785229` with similar form data. Diff shown below.
+About a second afterward, I get a second request to `https://smetric.hilton.com/b/ss/hiltonglobalprod/10/IOSN030200030900/s88785229` with similar form data. Diff shown below.
 
 ```text
 23c23
@@ -903,10 +903,10 @@ About a second afterward I get a second request to `https://smetric.hilton.com/b
 >   ],"uuid":"61645808922583835885560882535048239660","dcs_region":7,"tid":"69dMPcWjQD4="
 ```
 
-replaying either of the requests does nothing except give a new tid value but doesn't unlock the door. The `sxxxxxxx` part of the reuqest url also changes on every new request and doesn't seem to match any discernable pattern. The `IOSN030200030900` part never changes however. My guess is that that part is a hotel reference id. From doing some ducking around online I couldn't find any references to the `smetric.hilton.com` domain but it was blocked by uBlock origin as part of the [EasyPrivacy](https://easylist.to/#easyprivacy) block list. The app also seems to issue requests to this url.
+Replaying either of the requests does nothing except give a new `tid` value but doesn't unlock the door. The `sxxxxxxx` part of the request URL also changes on every new request and doesn't seem to match any discernible pattern. The `IOSN030200030900` part never changes, however. My guess is that that part is a hotel reference ID. From doing some ducking around online, I couldn't find any references to the `smetric.hilton.com` domain, but it was blocked by uBlock Origin as part of the [EasyPrivacy](https://easylist.to/#easyprivacy) block list. The app also seems to issue requests to this URL.
 
 ## Wrap up
 
-I tried running a bluetooth scan to see if I could find the locks but nothing popped out as being a likely culprit. I did however find an interesting set of 3 bluetooth devices named "clearsky smart fleet" which upon research seems to be scissor lifts / construction equipment made by a company called [JLG](https://smartfleet.jlg.com/) which is quite interesting. That would make sense however as I saw several scissor lifts outside the hotel on my way in. By the time I'm writing this its 6:41 and I need to eat breakfast so I'll probably finish this post in the car this afternoon. Overall this was a really interesting experiment and while I sadly did fail at unlocking doors from my laptop I do feel more confident with reverse engineering app requests now! The next step would probably be to grab the app bundle and try to decompile it looking for the urls we saw but I don't have a mac on me and i've never done that before. Next post?
+I tried running a Bluetooth scan to see if I could find the locks, but nothing popped out as being a likely culprit. I did however find an interesting set of 3 Bluetooth devices named "clearsky smart fleet" which upon research seems to be scissor lifts / construction equipment made by a company called [JLG](https://smartfleet.jlg.com/) which is quite interesting. That would make sense, however, as I saw several scissor lifts outside the hotel on my way in. By the time I'm writing this it's 6:41, and I need to eat breakfast, so I'll probably finish this post in the car this afternoon. Overall this was a fascinating experiment and while I sadly did fail at unlocking doors from my laptop I do feel more confident with reverse engineering app requests now! The next step would probably be to grab the app bundle and try to decompile it looking for the URLs we saw, but I don't have a mac on me, and I've never done that before. Next post?
 
-Taking inspiration from the [LOW←TECH MAGAZINE](https://solar.lowtechmagazine.com/) I will be taking any questions / comments about this article via email and then posting them here to my site! If you have a question or comment feel free to email me at [me@dunkirk.sh](mailto://me@dunkirk.sh). Now to go eat breakfast :)
+Taking inspiration from the [LOW←TECH MAGAZINE](https://solar.lowtechmagazine.com/) I will be taking any questions / comments about this article via email and then posting them here to my site! If you have a question or comment, feel free to email me at [me@dunkirk.sh](mailto://me@dunkirk.sh). Now to go eat breakfast :)
