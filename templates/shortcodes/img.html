@@ -1,4 +1,6 @@
-<div {% if class %}class="{{class}}"{% endif %}>
-  <img src="{{id}}" {% if alt %}alt="{{alt}}"{% endif %}>
-  {% if caption %}<div class="caption">{{caption}}</div>{% endif %}
-</div>
+<figure {% if class %}class="{{class}}" {% else %}class="center" {% endif %}>
+  <img src="{{id}}" {% if alt %}alt="{{alt}}" {% endif %} />
+  {% if caption %}
+  <figcaption>{{caption}}</figcaption>
+  {% endif %}
+</figure>
