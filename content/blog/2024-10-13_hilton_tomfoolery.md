@@ -17,6 +17,8 @@ I'm at a Hilton at the time of writing this, and I'm decently bored. Currently, 
 
 I'm connecting over WireGuard, so I fired up mitmproxy with `mitmweb --mode wireguard` on my laptop. Connecting via WireGuard theoretically is pretty simple; all I need to do is to scan a qr code and connect. Unfortunately, the hotel Wi-Fi seems to be oddly segmented, and I can't access the WireGuard server or ping my laptop from my phone. I'm going to try firing up a hot spot on my dad's phone and see if that allows me to talk to my phone.
 
+{{ img(id="https://cloud-ryjlxhb9r-hack-club-bot.vercel.app/2install_profile.png" alt="screenshot of the root certificate install process" caption="You have to dig through several menus to trust it") }}
+
 I messed with getting my laptop to connect to my dad's phone, but it kept refusing for some reason. My next idea is to ngrok the WireGuard tunnel, which ended up failing because ngrok doesn't support UDP. Finally, after an embarrassingly long time, I realized that I could simply use `ngrok tcp 8080` and the HTTP proxy server built into mitmproxy instead. After installing the root certificate and trusting it in the iPhone settings, we were good to go!
 
 ## Digging around in the Hilton Honors app
@@ -126,7 +128,14 @@ At this point I went to bed as it was about 23:30, but I set my alarm for 5:30 (
 
 # Invitation
 
-I shared the key which asked for a name and then opened the iOS share sheet and I choose to send by text. I went back to my phone, clicked the link and low and behold we got a hit! `https://hms.hiltonapi.com/hms/v1/digitalkey/invitation/accept`:
+> Hi Kieran,  
+> I’m sharing my Digital Key so you can use your phone as a room key.  
+> If you already have the Hilton Honors app make sure you are on the latest version and click this https://hiltonhonors3.hilton.com/rs/hilton-honors-mobile-app?shareId=b4d6140d311e4c4c935dd653ca00af65 to accept the Digital Key.  
+> If you don’t have the Hilton Honors app, download it using the link above and return to this message to accept within 8 hours to get your key.  
+> See you soon,  
+> xxxx xxxx  
+
+I shared the key which asked for a name and then opened the iOS share sheet and I choose to send by text (it sent the above message). I went back to my phone, clicked the link and low and behold we got a hit! `https://hms.hiltonapi.com/hms/v1/digitalkey/invitation/accept`:
 
 > POST
 ```json
@@ -750,6 +759,8 @@ It appears that Hilton relies very heavily on GraphQL, which is interesting. I w
 
 ## Locks
 
+{{ img(id="https://cloud-ryjlxhb9r-hack-club-bot.vercel.app/0hotel-key.png" alt="screenshot of the hotel digital key" caption="What it looks like in the app") }}
+
 When using the unlock button, it made a request to this URL: `https://smetric.hilton.com/b/ss/hiltonglobalprod/10/IOSN030200030900/s65425920` with a payload of a URL encoded form.
 
 > POST
@@ -923,6 +934,14 @@ Replaying either of the requests does nothing except give a new `tid` value but 
 
 ## Wrap up
 
-I tried running a Bluetooth scan to see if I could find the locks, but nothing popped out as being a likely culprit. I did however find an interesting set of 3 Bluetooth devices named "clearsky smart fleet" which upon research seems to be scissor lifts / construction equipment made by a company called [JLG](https://smartfleet.jlg.com/) which is quite interesting. That would make sense, however, as I saw several scissor lifts outside the hotel on my way in. By the time I'm writing this it's 6:41, and I need to eat breakfast, so I'll probably finish this post in the car this afternoon. Overall this was a fascinating experiment and while I sadly did fail at unlocking doors from my laptop I do feel more confident with reverse engineering app requests now! The next step would probably be to grab the app bundle and try to decompile it looking for the URLs we saw, but I don't have a mac on me, and I've never done that before. Next post?
+{{ img(id="https://cloud-ryjlxhb9r-hack-club-bot.vercel.app/1bluetooth-scan.png" alt="screenshot of bluetooth scan" caption="The bluetooth scan of (what i belive is) the lift") }}
+
+I tried running a Bluetooth scan to see if I could find the locks, but nothing popped out as being a likely culprit. I did however find an interesting set of 3 Bluetooth devices named "clearsky smart fleet" which upon research seems to be scissor lifts / construction equipment made by a company called [JLG](https://smartfleet.jlg.com/) which is quite interesting. That would make sense, however, as I saw several scissor lifts outside the hotel on my way in.  
+
+{{ img(id="https://cloud-1asinv8kn-hack-club-bot.vercel.app/0img_2781.jpg" alt="image of JLG lift" caption="The same (probably) JLG lift in the wild!") }}
+
+By the time I'm writing this it's 6:41, and I need to eat breakfast, so I'll probably finish this post in the car this afternoon. Overall this was a fascinating experiment and while I sadly did fail at unlocking doors from my laptop I do feel more confident with reverse engineering app requests now! The next step would probably be to grab the app bundle and try to decompile it looking for the URLs we saw, but I don't have a mac on me, and I've never done that before. Next post?
 
 Taking inspiration from the [LOW←TECH MAGAZINE](https://solar.lowtechmagazine.com/) I will be taking any questions / comments about this article via email and then posting them here to my site! If you have a question or comment, feel free to email me at [me@dunkirk.sh](mailto://me@dunkirk.sh). Now to go eat breakfast :)
+
+{{ img(id="https://cloud-1asinv8kn-hack-club-bot.vercel.app/3img_2777.jpg" alt="image of my hotel breakfast" caption="A delicious waffle, mildy warm bacon, and under seasoned potatoes.") }}
