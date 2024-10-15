@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      :root,
+      ::backdrop {
+        color-scheme: dark;
+        --bg: #222529;
+        --bg-light: #464949;
+        --text: #d6d6d6;
+        --text-light: #c5c0b7;
+        --accent: #78b6ad;
+        --accent-light: #87c9e5;
+        --accent-text: var(--bg);
+        --border: #dbd5bc;
+        --link: #e2c8a2;
+      }
+
+      body {
+        font-weight: 600;
+        color: #d6d6d6;
+        background-color: #222529;
+        font-family: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono",
+          monospace;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      div {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 90vh; /* 90% of viewport height */
+        width: 90vw; /* 90% of viewport width */
+        padding: 5vh 5vw; /* 5% border on all sides */
+        box-sizing: border-box;
+        align-self: center;
+      }
+
+      h1 {
+        font-size: calc(
+          2rem + 2vw
+        ); /* Adjust font size based on viewport width */
+        margin: 0.5em 0;
+        line-height: 1.1;
+      }
+
+      h1::before {
+        color: var(--accent);
+        content: "# ";
+      }
+
+      p {
+        margin: 1rem 0;
+        font-size: calc(
+          1rem + 1vw
+        ); /* Adjust font size based on viewport width */
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>{{postname}} lol eat food hapily</h1>
+      <p>By Kieran Klukas</p>
+    </div>
+  </body>
+</html>
