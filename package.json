@@ -2,6 +2,9 @@
   "name": "zera",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "build:all": "zola build; bun run tools/genOG.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
