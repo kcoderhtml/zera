@@ -93,6 +93,10 @@
   margin: 1rem auto;
 }
 
+.center figcaption {
+  text-align: center;
+}
+
 .float-right {
   float: right;
 }
