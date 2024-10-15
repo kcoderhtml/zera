@@ -6,12 +6,10 @@
     "gen": "bun run tools/genOG.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "puppeteer": "^23.5.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "puppeteer": "^23.5.3"
   }
 }
