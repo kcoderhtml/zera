@@ -23,6 +23,7 @@ I messed with getting my laptop to connect to my dad's phone, but it kept refusi
 
 First I had to download the app, which required disabling the proxy as iOS seems to ignore certificate trust settings for the app store. Enrollment happened via the `https://m.hilton.io/graphql/customer?operationName=createGuest&type=enroll` endpoint and was as follows:
 
+> POST
 ```json
 {
   "query": "...",
@@ -64,6 +65,8 @@ First I had to download the app, which required disabling the proxy as iOS seems
   },
   "operationName": "createGuest"
 }
+```
+```bash
 ---
 mutation createGuest($input: EnrollInput!, $language: String!) {
     createGuest(language: $language, input: $input) {
@@ -84,15 +87,16 @@ mutation createGuest($input: EnrollInput!, $language: String!) {
     }
 }
 ```
+<br/>
 
-getting the response:
+> response
 
 ```json
 {
     "data": {
         "createGuest": {
             "data": {
-                "guestId": 172624xxxx,
+                "guestId": 1726240000,
                 "hhonorsNumber": "225782xxxx"
             },
             "error": null
@@ -103,8 +107,9 @@ getting the response:
     }
 }
 ```
+<br/>
 
-with the headers:
+> headers
 
 ```json
 {
@@ -123,14 +128,16 @@ At this point I went to bed as it was about 23:30, but I set my alarm for 5:30 (
 
 I shared the key which asked for a name and then opened the iOS share sheet and I choose to send by text. I went back to my phone, clicked the link and low and behold we got a hit! `https://hms.hiltonapi.com/hms/v1/digitalkey/invitation/accept`:
 
+> POST
 ```json
 {
     "shareId": "b4d6140d311e4c4c935dd653ca00af65"
 }
 ```
 
-our response was as follows:
+<br/>
 
+> response
 ```json
 {
     "arrivalDateTime": "2024-10-13T15:00-04:00",
@@ -144,6 +151,7 @@ our response was as follows:
 
 Another interesting request was to `https://m.hilton.io/graphql/customer?operationName=hotel_brand&type=hotelDetails_GCYPAHX` 
 
+> POST
 ```json
 {
   "variables": {
@@ -153,6 +161,8 @@ Another interesting request was to `https://m.hilton.io/graphql/customer?operati
   "operationName": "hotel_brand",
   "query": "..."
 }
+```
+```bash
 ---
 query hotel_brand($language: String!, $ctyhocn: String!) {
   hotel(language: $language, ctyhocn: $ctyhocn) {
@@ -260,8 +270,9 @@ query hotel_brand($language: String!, $ctyhocn: String!) {
 }
 ```
 
-with a response of:
+<br/>
 
+> response
 ```json
 {
     "data": {
@@ -741,7 +752,8 @@ It appears that Hilton relies very heavily on GraphQL, which is interesting. I w
 
 When using the unlock button, it made a request to this URL: `https://smetric.hilton.com/b/ss/hiltonglobalprod/10/IOSN030200030900/s65425920` with a payload of a URL encoded form.
 
-```text
+> POST
+```yaml
 ndh:              1
 cid.:             
 card_no.:         
@@ -844,8 +856,10 @@ t:                00/00/0000 00:00:00 0 240
 ts:               1728899984
 ```
 
+<br/>
+
 > response 
-```text 
+```json 
  {
   "stuff":[ {
     "cn":"TMS","cv":"web=17836315,Web-app=15217574,Web-app=17952857,Web-app=17952894,web-app=19493122,web-app=19484989,web-app=21539153,web-app=21539313,web-app=21881915,web-app=22516131,web-app=22889861,web-app=23583601,web-app=15218869,web-app=26458327,web-app=26458383,web-app=21537957","ttl":30,"dmn":""
@@ -859,7 +873,8 @@ ts:               1728899984
 
 About a second afterward, I get a second request to `https://smetric.hilton.com/b/ss/hiltonglobalprod/10/IOSN030200030900/s88785229` with similar form data. Diff shown below.
 
-```text
+> POST.diff
+```diff
 23c23
 < action:           digital key:key:unlock_btn
 ---
@@ -895,9 +910,10 @@ About a second afterward, I get a second request to `https://smetric.hilton.com/
 >
 > *:8080mitmproxy 10.4.2 
 ```
+<br/>
 
-> response diff
-```text 
+> response.diff
+```diff 
 <   ],"uuid":"61645808922583835885560882535048239660","dcs_region":7,"tid":"RufgJCfxTjg="
 ---
 >   ],"uuid":"61645808922583835885560882535048239660","dcs_region":7,"tid":"69dMPcWjQD4="
