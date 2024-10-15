@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import { readdir } from "node:fs/promises";
+import { readdir, mkdir } from "node:fs/promises";
 
 const template = await Bun.file("tools/og.html").text();
 
@@ -44,6 +44,23 @@ try {
     file.endsWith("index.html")
   );
 
+  const directories = new Set(
+    files.map((file) => file.replace("index.html", ""))
+  );
+
+  const existing = (await readdir("static/")).filter((file) =>
+    directories.has(file)
+  );
+
+  // create not existing
+  for (const dir of directories) {
+    if (!existing.includes(dir)) {
+      await mkdir(`static/${dir.split("/").slice(0, -1).join("/")}`, {
+        recursive: true,
+      });
+    }
+  }
+
   console.log("Generating OG images for", files.length, "files");
 
   // for each file, get the title tag from the index.html
@@ -54,8 +71,9 @@ try {
       console.error(`No title found for ${file}`);
       continue;
     }
+
     console.log("Generating OG for", title);
-    await og(title, `public/${file.replace("index.html", "og.png")}`);
+    await og(title, `static/${file.replace("index.html", "og.png")}`);
   }
 } catch (e) {
   console.error(e);
