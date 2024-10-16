@@ -205,7 +205,7 @@ To embed a video, you use the `youtube` shortcode e.g.
 
 You can also add the `autoplay=true` flag to make the video autoplay.
 
-{{ youtube(id="kiWvNwuBbEE") }}
+{{ youtube(id="NodwjZF7uZw") }}
 
 The shortcode is processed into an iframe which looks like this:
 
