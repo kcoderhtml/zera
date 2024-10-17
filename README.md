@@ -1,10 +1,18 @@
 # site@zera
 
-![a screenshot of my website](https://github.com/kcoderhtml/zera/blob/master/.github/images/ss.png?raw=true)
+<figure align="center">
+  <img src="https://github.com/kcoderhtml/zera/blob/master/.github/images/ss.png?raw=true" alt="screenshot of the website"/>
+  <figcaption><i>My site v4 (i think)</i></figcaption>
+</figure>
 
----
+## Special Features
 
-My site v4 (i think)
+- The whole website can be statically rendered in `~93ms`
+- Deployed via cloudflare pages with a total push to deploy time of `~20s`
+- Automatic OG image via a custom script using puppeteer.  
+![og image example](https://github.com/kcoderhtml/zera/blob/master/.github/images/og.png?raw=true)
+
+## Awesome projects that made this possible
 
 Huge thanks to [Speyll/anemone](https://github.com/Speyll/anemone) for the template that helped me understand [Zola](https://www.getzola.org/)
 
