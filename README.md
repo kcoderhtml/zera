@@ -1,5 +1,9 @@
 # site@zera
 
+![a screenshot of my website](https://github.com/kcoderhtml/zera/blob/master/.github/images/ss.png?raw=true)
+
+---
+
 My site v4 (i think)
 
 Huge thanks to [Speyll/anemone](https://github.com/Speyll/anemone) for the template that helped me understand [Zola](https://www.getzola.org/)
