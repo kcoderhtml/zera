@@ -28,11 +28,12 @@
 
 .tags-data {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: flex-start;
   align-content: flex-end;
+  gap: 0.25rem;
 }
 
 .title-list li {
