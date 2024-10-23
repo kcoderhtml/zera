@@ -5,7 +5,7 @@ slug = "hilton-tomfoolery"
 description = "Playing around with mitmproxy and the Hilton Honors app as well as a flipper zero"
 
 [taxonomies]
-tags = ["meta"]
+tags = ["reverse engineering", "hilton"]
 
 [extra]
 has_toc = true
