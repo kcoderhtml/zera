@@ -66,10 +66,18 @@ try {
   // for each file, get the title tag from the index.html
   for (const file of files) {
     const index = await Bun.file(`public/${file}`).text();
-    const title = index.match(/<title>(.*?)<\/title>/)![1];
-    if (!title) {
-      console.error(`No title found for ${file}`);
-      continue;
+    let title: string;
+    if (file.startsWith("tags/")) {
+      const parts = file.split("/");
+      title = `Tag: ${parts[1]}`; // take the next directory as the title
+    } else {
+      const match = index.match(/<title>(.*?)<\/title>/);
+      if (match) {
+        title = match[1];
+      } else {
+        console.error(`No title found for ${file}`);
+        continue;
+      }
     }
 
     console.log("Generating OG for", title);
