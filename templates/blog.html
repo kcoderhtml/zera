@@ -4,7 +4,17 @@
   <!-- If you are using pagination, section.pages will be empty.
        You need to use the paginator object -->
   {% for page in section.pages %}
-  <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+    {% if "archival" not in page.taxonomies.tags %}
+      <li>{{ page.date }} &mdash; <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+<ul>
+  {% for page in section.pages %}
+    {% if "archival" in page.taxonomies.tags %}
+      <li>{{ page.date }} &mdash; <a href="{{ page.permalink | safe }}">{{ page.title }}</a> (archival)</li>
+    {% endif %}
   {% endfor %}
 </ul>
 {% endblock content %}
