@@ -1,5 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <h1 class="title">{{ section.title }}</h1>
+
+<p role="heading">--- <span style="letter-spacing: 0.1em;">Main Blog</span> ---</p>
+
 <ul>
   <!-- If you are using pagination, section.pages will be empty.
        You need to use the paginator object -->
@@ -9,6 +12,8 @@
     {% endif %}
   {% endfor %}
 </ul>
+
+<p role="heading" >--- <span style="letter-spacing: 0.213em;">Archival</span> ---</p>
 
 <ul>
   {% for page in section.pages %}
