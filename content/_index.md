@@ -19,6 +19,12 @@ const kieran = {
 }
 ```
 
+A few special features this site has
+- The whole website can be statically rendered in `~93ms`
+- Deployed via cloudflare pages with a total push to deploy time of `~20s`
+- Automatic OG image via a custom script using puppeteer.  
+- self hosted analytics with plausible, publicaly accessible at this [dashboard](https://nexus.kieranklukas.com/dunkirk.sh/)
+
 ## Want to talk to me?
 
 Do you want to hire me? (I will answer immediately :) If you just have a question or want to talk I'll still answer (admittedly more sadly).
