@@ -15,11 +15,6 @@ This post is for me to just test out all the features and styling of the blog, a
 make sure that if I change the CSS or anything I don't break any of it! This is also a
 sort of light style guide for blog posts in general.
 
-<!-- more -->
-
-First off, this paragraph is after the `<!-- more -->` cutoff, which means that it *should not*
-appear in thumbnails linking to this post from elsewhere on the site.
-
 ## Section Headers
 
 Sections headers (prefixed with `##` in markdown) are the main content separators for posts, and
