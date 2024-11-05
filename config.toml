@@ -6,6 +6,7 @@ description = "The home site of kieran klukas"
 compile_sass = true
 minify_html = true
 generate_feeds = true
+feed_filenames = ["rss.xml", "atom.xml"]
 default_language = "en"
 
 taxonomies = [
