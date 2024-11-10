@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://cloud-4mfbnf9u2-hack-club-bot.vercel.app/0img_3132.png"/>
+</p>
+
 # site@zera
 
 <figure align="center">
