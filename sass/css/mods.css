@@ -132,8 +132,8 @@ blockquote:has(+ pre) {
 	margin: 0;
 	margin-bottom: 0.2rem;
 	margin-block: 0 0;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-top-left-radius: 0.2em;
+	border-top-right-radius: 0.2em;
 	padding-left: 0.75rem;
 	padding-right: 0.75rem;
 	padding-top: 0.25rem;
