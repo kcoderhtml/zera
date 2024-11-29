@@ -4,7 +4,10 @@
 	--sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
 		"Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
 		"Helvetica Neue", sans-serif;
-	--mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+	--serif-font: Superclarendon, "Bookman Old Style", "URW Bookman",
+		"URW Bookman L", "Georgia Pro", Georgia, serif;
+	--mono-font: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+		"DejaVu Sans Mono", monospace;
 	--standard-border-radius: 5px;
 
 	/* default colors */
@@ -25,12 +28,13 @@
 	::backdrop {
 		color-scheme: dark;
 		--bg: #222529;
-		--bg-light: #464949;
+		--bg-light: #2b2e32;
 		--text: #d6d6d6;
 		--text-light: #c5c0b7;
-		--accent: #78b6ad;
+		--text-dark: #c2cccd;
+		--accent: #6fa4a7;
 		--accent-light: #87c9e5;
-		--accent-text: var(--bg);
+		--accent-text: #2f2e2d;
 		--border: #dbd5bc;
 		--link: #e2c8a2;
 	}
@@ -63,6 +67,7 @@
 	--bg-light: #cbcdcd;
 	--text: #41474e;
 	--text-light: #686764;
+	--text-dark: #20252b;
 	--accent: #58310ac5;
 	--accent-light: #56412bc5;
 	--accent-text: var(--bg);
@@ -73,12 +78,13 @@
 [data-theme="dark"] {
 	color-scheme: dark;
 	--bg: #222529;
-	--bg-light: #464949;
+	--bg-light: #2b2e32;
 	--text: #d6d6d6;
 	--text-light: #c5c0b7;
-	--accent: #78b4b6e3;
-	--accent-light: #c5edefe6;
-	--accent-text: var(--bg);
+	--text-dark: #c2cccd;
+	--accent: #6fa4a7;
+	--accent-light: #87c9e5;
+	--accent-text: #2f2e2d;
 	--border: #dbd5bc;
 	--link: #e2c8a2;
 }
@@ -162,6 +168,11 @@ h4,
 h5,
 h6 {
 	margin: 0.5em 0 0.5em 0;
+	padding: 0.22em 0.4em 0.22em 0.4em;
+	border-radius: 0.1em;
+	background-color: var(--accent);
+	color: var(--accent-text);
+	width: fit-content;
 }
 
 /* Fix line height when title wraps */
@@ -169,16 +180,6 @@ h1,
 h2,
 h3 {
 	line-height: 1.1;
-}
-
-h1::before,
-h2::before,
-h3::before,
-h4::before,
-h5::before,
-h6::before {
-	color: var(--accent);
-	content: "# ";
 }
 
 @media only screen and (max-width: 720px) {
@@ -239,14 +240,9 @@ li {
 }
 
 ul li::marker {
-	content: "» ";
+	content: "* ";
 	color: var(--accent);
-}
-
-ul li:hover::marker {
-	content: "# ";
-	font-weight: 700;
-	color: var(--link);
+	font-size: 1.1rem;
 }
 
 ol li::marker {
