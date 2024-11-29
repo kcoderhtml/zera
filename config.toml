@@ -41,7 +41,7 @@ list_pages = false
 twitter_card = true
 
 header_nav = [
-  { url = "/", name = "/home/" },
-  { url = "/pfp", name = "/pfp/" },
-  { url = "/blog", name = "/blog/" }
+  { url = "/", name = "/root" },
+  { url = "/verify", name = "/verify" },
+  { url = "/blog", name = "/blog" }
 ]
