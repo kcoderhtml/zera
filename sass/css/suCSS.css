@@ -15,8 +15,9 @@
 	--bg-light: #cbcdcd;
 	--text: #41474e;
 	--text-light: #686764;
+	--text-dark: #20252b;
 	--accent: #58310ac5;
-	--accent-light: #e08f67;
+	--accent-light: #56412bc5;
 	--accent-text: var(--bg);
 	--border: #646868;
 	--link: #573819c5;
