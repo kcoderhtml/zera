@@ -40,9 +40,9 @@ try {
 	}
 
 	// read all the files in the current directory filtering for index.htmls
-	const files = (await readdir("public/", { recursive: true })).filter((file) =>
-		file.endsWith("index.html"),
-	);
+	const files = (await readdir("public/", { recursive: true }))
+		.filter((file) => file.endsWith("index.html"))
+		.filter((file) => file !== "index.html");
 
 	const directories = new Set(
 		files.map((file) => file.replace("index.html", "")),
