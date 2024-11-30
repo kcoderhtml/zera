@@ -11,11 +11,16 @@
 
 #footer-container {
 	display: flex;
+	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	padding-bottom: 0.5rem;
+}
+
+#footer-container p {
+	margin: 0;
 }
 
 .accent-data {
