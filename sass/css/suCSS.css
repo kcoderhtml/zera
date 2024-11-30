@@ -21,7 +21,7 @@
 	--accent-light: #56412bc5;
 	--accent-text: #dfd1bc;
 	--border: #646868;
-	--link: #573819c5;
+	--link: var(--accent);
 }
 
 /* theme media queries */
@@ -39,7 +39,7 @@
 		--accent-light: var(--rose-quartz);
 		--accent-text: #2f2e2d;
 		--border: #dbd5bc;
-		--link: #e2c8a2;
+		--link: var(--accent);
 	}
 	img,
 	video {
@@ -60,7 +60,7 @@
 		--accent-light: #e08f67;
 		--accent-text: #dfd1bc;
 		--border: #646868;
-		--link: #573819c5;
+		--link: var(--accent);
 	}
 }
 
@@ -78,7 +78,7 @@
 	--accent-light: #56412bc5;
 	--accent-text: #dfd1bc;
 	--border: #646868;
-	--link: #573819c5;
+	--link: var(--accent);
 }
 
 [data-theme="dark"] {
@@ -93,7 +93,7 @@
 	--accent-light: var(--rose-quartz);
 	--accent-text: #2f2e2d;
 	--border: #dbd5bc;
-	--link: #e2c8a2;
+	--link: var(--accent);
 }
 
 ::selection,
