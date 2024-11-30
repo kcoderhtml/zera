@@ -220,14 +220,12 @@ a,
 a:visited {
 	text-decoration: none;
 	font-weight: bold;
-	font-style: italic;
 	border-radius: 0.125rem;
 	color: var(--link);
 }
 
 a:hover {
-	background-color: var(--link);
-	color: var(--bg);
+	text-decoration: underline wavy;
 }
 
 /* format lists */
