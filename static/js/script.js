@@ -25,12 +25,6 @@ const toggleTheme = () => {
 	updateTheme(isDarkMode);
 	themeSound.play();
 	localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-
-	// Add transition class to body for smooth transition
-	document.body.classList.add("theme-transition");
-	setTimeout(() => {
-		document.body.classList.remove("theme-transition");
-	}, 300);
 };
 
 // Event listener for theme toggle
