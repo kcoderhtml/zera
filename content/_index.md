@@ -27,10 +27,8 @@ A few special features this site has
 
 ## Want to talk to me?
 
-Do you want to hire me? (I will answer immediately :) If you just have a question or want to talk I'll still answer (admittedly more sadly).
+Do you want to hire me? (I will answer immediately :) If you just have a question or want to talk I'll still answer (admittedly more slowly).
 
 - Email: [me@dunkirk.sh](mailto:me@dunkirk.sh)
-- Matrix: [@kieran:dumpsterfire.icu](https://matrix.to/#/@kieran.matrix.dumpsterfire.icu)
 - Hackclub Slack: [@krn](https://hackclub.slack.com/team/U062UG485EE) (only if you are a highschooler or younger; [join here](https://hackclub.com/slack/))
-
-_I wouldn't count on reaching me via Matrix. I tend to check it once in a blue moon; email is probably your best bet._
+- If you just want to know when I make a new post then you can subscribe to the [rss](rss.xml) feed ^-^
