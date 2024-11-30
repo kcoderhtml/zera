@@ -12,11 +12,12 @@
 
 	/* default colors */
 	--bg: var(--earth-yellow);
+	--noise-strength: 0.3;
 	--bg-light: #cbcdcd;
 	--text: #41474e;
 	--text-light: #686764;
 	--text-dark: #20252b;
-	--accent: #58310ac5;
+	--accent: oklch(35.55% 0.0754 60.09);
 	--accent-light: #56412bc5;
 	--accent-text: #dfd1bc;
 	--border: #646868;
@@ -29,7 +30,7 @@
 	::backdrop {
 		color-scheme: dark;
 		--bg: #222529;
-		--noise-strength: 0.3;
+		--noise-strength: 0.15;
 		--bg-light: var(--ultra-violet);
 		--text: #d6d6d6;
 		--text-light: #c5c0b7;
@@ -51,7 +52,7 @@
 	::backdrop {
 		color-scheme: light;
 		--bg: var(--earth-yellow);
-		--noise-strength: 0.5;
+		--noise-strength: 0.15;
 		--bg-light: #cbcdcd;
 		--text: #41474e;
 		--text-light: #686764;
@@ -68,7 +69,7 @@
 	color-scheme: light;
 	--bg: linear-gradient(0deg, var(--earth-yellow), var(--earth-yellow)),
 		var(--gradient-average-light);
-	--noise-strength: 0.5;
+	--noise-strength: 0.22;
 	--bg-light: var(--reseda-green);
 	--text: #41474e;
 	--text-light: #686764;
@@ -83,7 +84,7 @@
 [data-theme="dark"] {
 	color-scheme: dark;
 	--bg: linear-gradient(0deg, #222529, #222529), var(--gradient-average-dark);
-	--noise-strength: 0.3;
+	--noise-strength: 0.15;
 	--bg-light: var(--ultra-violet);
 	--text: #d6d6d6;
 	--text-light: #c5c0b7;
