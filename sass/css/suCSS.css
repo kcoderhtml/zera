@@ -11,12 +11,7 @@
 	--standard-border-radius: 5px;
 
 	/* default colors */
-	--bg: #eeeeee;
-	--main-background: linear-gradient(
-			177deg in oklab,
-			oklch(76.22% 0.1051 74.93) 0%,
-			oklch(87.45% 0.0807 74.93) 100%
-		), var(--sunset);
+	--bg: var(--earth-yellow);
 	--bg-light: #cbcdcd;
 	--text: #41474e;
 	--text-light: #686764;
@@ -34,7 +29,6 @@
 	::backdrop {
 		color-scheme: dark;
 		--bg: #222529;
-		--main-background: var(--bg);
 		--noise-strength: 0.3;
 		--bg-light: var(--ultra-violet);
 		--text: #d6d6d6;
@@ -56,12 +50,7 @@
 	:root,
 	::backdrop {
 		color-scheme: light;
-		--bg: #eeeeee;
-		--main-background: linear-gradient(
-				177deg in oklab,
-				oklch(76.22% 0.1051 74.93) 0%,
-				oklch(87.45% 0.0807 74.93) 100%
-			), var(--sunset);
+		--bg: var(--earth-yellow);
 		--noise-strength: 0.5;
 		--bg-light: #cbcdcd;
 		--text: #41474e;
@@ -77,12 +66,8 @@
 [data-theme="light"] {
 	/* default (light) theme */
 	color-scheme: light;
-	--bg: #eeeeee;
-	--main-background: linear-gradient(
-			177deg in oklab,
-			oklch(76.22% 0.1051 74.93) 0%,
-			oklch(87.45% 0.0807 74.93) 100%
-		), var(--sunset);
+	--bg: linear-gradient(0deg, var(--earth-yellow), var(--earth-yellow)),
+		var(--gradient-average-light);
 	--noise-strength: 0.5;
 	--bg-light: var(--reseda-green);
 	--text: #41474e;
@@ -97,8 +82,7 @@
 
 [data-theme="dark"] {
 	color-scheme: dark;
-	--bg: #222529;
-	--main-background: var(--bg);
+	--bg: linear-gradient(0deg, #222529, #222529), var(--gradient-average-dark);
 	--noise-strength: 0.3;
 	--bg-light: var(--ultra-violet);
 	--text: #d6d6d6;
@@ -147,7 +131,7 @@ html {
 body {
 	min-height: 100svh;
 	color: var(--text);
-	background: var(--main-background);
+	background: var(--bg);
 	position: relative;
 	font-size: 1rem;
 	display: grid;

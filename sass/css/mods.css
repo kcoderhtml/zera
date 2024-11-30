@@ -164,9 +164,10 @@ blockquote:has(+ pre) p {
 }
 
 :root {
-	--gradient-average: oklch(73.3% 0.0672 81.92);
+	--gradient-average-light: oklch(81.57% 0.0686 76.21);
+	--gradient-average-dark: oklch(33.5% 0.0067 248.03);
 	--reseda-green: oklch(54.99% 0.0475 126.94);
-	--earth-yellow: oklch(81.64% 0.1051 74.93);
+	--earth-yellow: oklch(81.53% 0.0874 75.19);
 	--sunset: oklch(87.45% 0.0807 74.93);
 	--ultra-violet: oklch(43.58% 0.087 297.45);
 	--rose-quartz: oklch(72.99% 0.0393 311.96);
