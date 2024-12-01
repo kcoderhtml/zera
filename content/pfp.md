@@ -6,9 +6,13 @@ All my profile pictures over the years
 
 # 2024
 
-October to present
+End of November to Present
 
-![kieran with a white and gray spotted kitten](/pfps/current.webp)
+![kieran with a white and gray spotted kitten with a grainy background and star dust](/pfps/starry.webp)
+
+October to very on of November
+
+![kieran with a white and gray spotted kitten](/pfps/kitty.webp)
 
 late September to early October
 
