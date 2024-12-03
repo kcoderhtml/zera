@@ -18,7 +18,7 @@
 	--text-light: #686764;
 	--text-dark: #20252b;
 	--accent: oklch(35.55% 0.0754 60.09);
-	--accent-light: #56412bc5;
+	--accent-dark: #56412bc5;
 	--accent-text: #dfd1bc;
 	--border: #646868;
 	--link: var(--accent);
@@ -29,14 +29,15 @@
 	:root,
 	::backdrop {
 		color-scheme: dark;
-		--bg: #222529;
+		--bg: linear-gradient(0deg, var(--purple-night), var(--purple-night)),
+			var(--gradient-average-dark);
 		--noise-strength: 0.15;
 		--bg-light: var(--ultra-violet);
 		--text: #d6d6d6;
 		--text-light: #c5c0b7;
 		--text-dark: #c2cccd;
 		--accent: var(--rose-quartz);
-		--accent-light: var(--rose-quartz);
+		--accent-dark: var(--rose-quartz);
 		--accent-text: #2f2e2d;
 		--border: #dbd5bc;
 		--link: var(--accent);
@@ -53,7 +54,7 @@
 		--text: #41474e;
 		--text-light: #686764;
 		--accent: #58310ac5;
-		--accent-light: #e08f67;
+		--accent-dark: #e08f67;
 		--accent-text: #dfd1bc;
 		--border: #646868;
 		--link: var(--accent);
@@ -71,7 +72,7 @@
 	--text-light: #686764;
 	--text-dark: #20252b;
 	--accent: #58310ac5;
-	--accent-light: #56412bc5;
+	--accent-dark: #56412bc5;
 	--accent-text: #dfd1bc;
 	--border: #646868;
 	--link: var(--accent);
@@ -79,17 +80,18 @@
 
 [data-theme="dark"] {
 	color-scheme: dark;
-	--bg: linear-gradient(0deg, #222529, #222529), var(--gradient-average-dark);
+	--bg: linear-gradient(0deg, var(--purple-night), var(--purple-night)),
+		var(--gradient-average-dark);
 	--noise-strength: 0.15;
 	--bg-light: var(--ultra-violet);
-	--text: #d6d6d6;
-	--text-light: #c5c0b7;
-	--text-dark: #c2cccd;
+	--text: var(--lavendar-breeze);
+	--text-light: var(--pink-puree);
+	--text-dark: oklch(80.28% 0.0111 204.11);
 	--accent: var(--rose-quartz);
-	--accent-light: var(--rose-quartz);
-	--accent-text: #2f2e2d;
+	--accent-dark: var(--dark-crushed-grape);
+	--accent-text: var(--purple-gray);
+	--link: var(--light-crushed-grape);
 	--border: #dbd5bc;
-	--link: var(--accent);
 }
 
 ::selection,
@@ -217,6 +219,10 @@ a:visited {
 	text-decoration: none;
 	font-weight: bold;
 	border-radius: 0.125rem;
+	color: var(--accent-dark);
+}
+
+a {
 	color: var(--link);
 }
 
@@ -458,8 +464,8 @@ input[type="submit"]:enabled:hover,
 input[type="reset"]:enabled:hover,
 input[type="button"]:enabled:hover,
 label[type="button"]:hover {
-	background-color: var(--accent-light);
-	border-color: var(--accent-light);
+	background-color: var(--accent-dark);
+	border-color: var(--accent-dark);
 	cursor: pointer;
 }
 
