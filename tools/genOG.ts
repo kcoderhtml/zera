@@ -8,6 +8,7 @@ const browser = await puppeteer.launch();
 async function og(
 	postname: string,
 	type: string,
+	by: string | undefined,
 	outputPath: string,
 	width = 1200,
 	height = 630,
@@ -20,7 +21,8 @@ async function og(
 		template
 			.toString()
 			.replace("{{postname}}", postname)
-			.replace("{{type}}", type),
+			.replace("{{type}}", type)
+			.replace("{{by}}", by || ""),
 	);
 
 	await page.screenshot({ path: outputPath });
@@ -74,9 +76,11 @@ try {
 		const index = await Bun.file(`public/${file}`).text();
 		const title = index.match(/<title>(.*?)<\/title>/)[1];
 		let type = "Page";
+		let by: string | undefined;
 		switch (file.split("/")[0]) {
 			case "blog":
 				type = "Blog";
+				by = "<p>By Kieran Klukas</p>";
 				break;
 			case "verify":
 			case "pfp":
@@ -95,7 +99,7 @@ try {
 		}
 
 		console.log("Generating OG for", file, "title:", title, "with type:", type);
-		await og(title, type, `static/${file.replace("index.html", "og.png")}`);
+		await og(title, type, by, `static/${file.replace("index.html", "og.png")}`);
 	}
 } catch (e) {
 	console.error(e);
