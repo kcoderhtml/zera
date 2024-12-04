@@ -20,8 +20,8 @@ page.description %} {% set description = page.description | truncate(length=150)
 %} {% elif section.description %} {% set description = section.description |
 truncate(length=150) %} {% elif config.description %} {% set description =
 config.description | truncate(length=150) %} {% endif %} {% if page.extra.image
-%} {% set image = get_url(path="og.png", trailing_slash=false) %} {% elif
-section.extra.image %} {% set image = get_url(path=section.extra.image,
+%} {% set image = get_url(path=current_path ~"og.png", trailing_slash=false) %}
+{% elif section.extra.image %} {% set image = get_url(path=section.extra.image,
 trailing_slash=false) %} {% elif page.path %} {% set image =
 get_url(path=page.path ~ "og.png", trailing_slash=false) %} {% else %} {% set
 image = get_url(path="og.png", trailing_slash=false) %} {% endif %} {% if
