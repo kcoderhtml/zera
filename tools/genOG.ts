@@ -81,24 +81,31 @@ try {
 			case "blog":
 				type = "Blog";
 				if (file.split("/")[1] !== "index.html") {
-					by = "<p>By Kieran Klukas</p>";
+					by = "<p>A post ... yeah thats about it</p>";
 				} else {
 					by = "<p>All authored by Kieran Klukas</p>";
 				}
 				break;
 			case "verify":
+				type = "Slash Page";
+				by = "<p>So you can stalk me 💀</p>";
+				break;
 			case "pfp":
 				type = "Slash Page";
+				by = "<p>Want to stare at my pretty face?</p>";
 				break;
 			case "tags":
 				if (file.split("/")[1] === "index.html") {
 					type = "Tags";
+					by = "<p>A total archive!</p>";
 				} else {
 					type = "Tag";
+					by = "<p>Find more posts like this!</p>";
 				}
 				break;
 			case "index.html":
 				type = "Root";
+				by = "<p>Where it all begins</p>";
 				break;
 		}
 
