@@ -83,7 +83,7 @@ try {
 				if (file.split("/")[1] !== "index.html") {
 					by = "<p>A post ... yeah thats about it</p>";
 				} else {
-					by = "<p>All authored by Kieran Klukas</p>";
+					by = "<p>All authored by me ... or are they???</p>";
 				}
 				break;
 			case "verify":
