@@ -7,6 +7,7 @@ const browser = await puppeteer.launch();
 
 async function og(
 	postname: string,
+	type: string,
 	outputPath: string,
 	width = 1200,
 	height = 630,
@@ -15,7 +16,12 @@ async function og(
 
 	await page.setViewport({ width, height });
 
-	await page.setContent(template.toString().replace("{{postname}}", postname));
+	await page.setContent(
+		template
+			.toString()
+			.replace("{{postname}}", postname)
+			.replace("{{type}}", type),
+	);
 
 	await page.screenshot({ path: outputPath });
 }
@@ -40,9 +46,9 @@ try {
 	}
 
 	// read all the files in the current directory filtering for index.htmls
-	const files = (await readdir("public/", { recursive: true }))
-		.filter((file) => file.endsWith("index.html"))
-		.filter((file) => file !== "index.html");
+	const files = (await readdir("public/", { recursive: true })).filter((file) =>
+		file.endsWith("index.html"),
+	);
 
 	const directories = new Set(
 		files.map((file) => file.replace("index.html", "")),
@@ -66,22 +72,30 @@ try {
 	// for each file, get the title tag from the index.html
 	for (const file of files) {
 		const index = await Bun.file(`public/${file}`).text();
-		let title: string;
-		if (file.startsWith("tags/")) {
-			const parts = file.split("/");
-			title = `Tag: ${parts[1]}`; // take the next directory as the title
-		} else {
-			const match = index.match(/<title>(.*?)<\/title>/);
-			if (match) {
-				title = match[1];
-			} else {
-				console.error(`No title found for ${file}`);
-				continue;
-			}
+		const title = index.match(/<title>(.*?)<\/title>/)[1];
+		let type = "Page";
+		switch (file.split("/")[0]) {
+			case "blog":
+				type = "Blog";
+				break;
+			case "verify":
+			case "pfp":
+				type = "Slash Page";
+				break;
+			case "tags":
+				if (file.split("/")[1] === "index.html") {
+					type = "Tags";
+				} else {
+					type = "Tag";
+				}
+				break;
+			case "index.html":
+				type = "Root";
+				break;
 		}
 
-		console.log("Generating OG for", title);
-		await og(title, `static/${file.replace("index.html", "og.png")}`);
+		console.log("Generating OG for", file, "title:", title, "with type:", type);
+		await og(title, type, `static/${file.replace("index.html", "og.png")}`);
 	}
 } catch (e) {
 	console.error(e);

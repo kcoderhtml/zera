@@ -14,12 +14,27 @@
         --accent-text: var(--bg);
         --border: #dbd5bc;
         --link: #e2c8a2;
+        --gradient-average-light: oklch(86.49% 0.018 73.05);
+        --gradient-average-dark: oklch(27.58% 0.0203 289.13);
+        --nightshade-violet: oklch(22.96% 0.0242 287.67);
+        --purple-night: oklch(18.96% 0.0242 287.67);
+        --dark-crushed-grape: oklch(74.02% 0.0756 311.96);
+        --light-crushed-grape: oklch(73.48% 0.1008 284.99);
+        --reseda-green: oklch(62.33% 0.0475 126.94);
+        --earth-yellow: oklch(87.45% 0.0203 74.93);
+        --sunset: oklch(87.45% 0.0334 74.93);
+        --ultra-violet: oklch(42.21% 0.0676 297.45);
+        --rose-quartz: oklch(65.32% 0.0585 311.96);
+        --pink-puree: oklch(75.65% 0.0555 290.76);
+        --lavendar-breeze: oklch(91.06% 0.0223 290.76);
+        --purple-gray: oklch(25.63% 0.0002 290.76);
+        --alice-blue: oklch(95.38% 0.0118 239.91);
       }
 
       body {
         font-weight: 600;
-        color: #d6d6d6;
-        background-color: #222529;
+        color: var(--lavendar-breeze);
+        background-color: var(--purple-night);
         font-family: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono",
           monospace;
         display: flex;
@@ -42,19 +57,56 @@
 
       h1 {
         font-size: calc(
-          2rem + 2vw
-        ); /* Adjust font size based on viewport width */
-        margin: 0.5em 0;
-        line-height: 1.1;
+          2 * 2vw
+        );
+      }
+      h2 {
+        font-size: calc(
+          1.75 * 2vw
+        );
+      }
+      h3 {
+        font-size: calc(
+          1.5 * 2vw
+        );
+      }
+      h4 {
+        font-size: calc(
+          1.25 * 2vw
+        );
+      }
+      h5 {
+        font-size: calc(
+          1 * 2vw
+        );
+      }
+      h6 {
+        font-size: calc(
+          0.75 * 2vw
+        );
       }
 
-      h1::before {
-        color: var(--accent);
-        content: "# ";
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0.5em 0 0.5em 0;
+        padding: 0.22em 0.4em 0.22em 0.4em;
+        border-radius: 0.1em;
+        width: fit-content;
+        color: var(--lavendar-breeze);
+      }
+
+      h1 {
+        background-color: var(--rose-quartz);
+        color: var(--purple-gray);
       }
 
       p {
         margin: 1rem 0;
+        color: var(--pink-puree);
         font-size: calc(
           1rem + 1vw
         ); /* Adjust font size based on viewport width */
@@ -63,7 +115,8 @@
   </head>
   <body>
     <div>
-      <h1>{{postname}}</h1>
+      <h1>{{type}}</h1>
+      <h2>{{postname}}</h2>
       <p>By Kieran Klukas</p>
     </div>
   </body>
