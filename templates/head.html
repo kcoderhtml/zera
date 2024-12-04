@@ -3,11 +3,18 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="index, follow" />
-<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link
+  rel="sitemap"
+  type="application/xml"
+  title="Sitemap"
+  href="/sitemap.xml"
+/>
 {% if page.title %} {% set title = page.title %} {% elif section.title %} {% set
-title = section.title %} {% elif config.title %} {% set title = config.title %}
-{% endif %} {% if page.extra.author %} {% set author = page.extra.author %} {%
-elif section.extra.author %} {% set author = section.extra.author %} {% elif
+title = section.title %} {% elif term %} {% set title = "|" ~ term.name ~ "|" %}
+{% elif current_path and "tags" in current_path %} {% set title = "Root Index"
+%} {% elif config.title %} {% set title = config.title %} {% endif %} {% if
+page.extra.author %} {% set author = page.extra.author %} {% elif
+section.extra.author %} {% set author = section.extra.author %} {% elif
 config.extra.author %} {% set author = config.extra.author %} {% endif %} {% if
 page.description %} {% set description = page.description | truncate(length=150)
 %} {% elif section.description %} {% set description = section.description |
@@ -57,14 +64,12 @@ default(value=true) %} {% if twitter_card != false %}
   type="image/x-icon"
   href="{{ get_url(path=config.extra.favicon, trailing_slash=false) }}"
 />
-{% endif %} {% endblock metatags %}
-{% if config.generate_feeds %} {% block feed%}
-<link rel="alternate" type="application/atom+xml" title="RSS" href="{{
-get_url(path="atom.xml", trailing_slash=false) }}">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
-{% endblock feed %} {% endif%}
-{% block css %} {% set cssHash = get_hash(path="css/main.css", sha_type=256,
-base64=true) %}
+{% endif %} {% endblock metatags %} {% if config.generate_feeds %} {% block
+feed%} <link rel="alternate" type="application/atom+xml" title="RSS" href="{{
+get_url(path="atom.xml", trailing_slash=false) }}"> <link rel="alternate"
+type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml",
+trailing_slash=false) }}"> {% endblock feed %} {% endif%} {% block css %} {% set
+cssHash = get_hash(path="css/main.css", sha_type=256, base64=true) %}
 <link
   rel="stylesheet"
   type="text/css"
