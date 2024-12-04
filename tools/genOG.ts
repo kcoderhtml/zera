@@ -80,7 +80,11 @@ try {
 		switch (file.split("/")[0]) {
 			case "blog":
 				type = "Blog";
-				by = "<p>By Kieran Klukas</p>";
+				if (file.split("/")[1] !== "index.html") {
+					by = "<p>By Kieran Klukas</p>";
+				} else {
+					by = "<p>All authored by Kieran Klukas</p>";
+				}
 				break;
 			case "verify":
 			case "pfp":
